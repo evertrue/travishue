@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.add_dependency "terminal-table", "~> 1.4.5"
   s.add_dependency "term-ansicolor", "~> 1.0.7"
   s.add_dependency "ruby-keychain"
+  s.add_dependency "travis"
   
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
