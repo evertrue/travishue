@@ -25,7 +25,9 @@ command :'travis:watch' do |c|
   c.action do |args, options|
 	token = Keychain.generic_passwords.where(:service => 'travishue').where(:account => 'protoken').first
 
-	Travis::Pro.access_token = token
+	say_error "Travis Pro token not stored in keychain.  (Login with the Travis gem first)" and abort if !token
+
+	Travis::Pro.access_token = token.password
 	user = Travis::Pro::User.current
 
 	puts "Hello #{user.name}: watching your builds."
@@ -55,5 +57,6 @@ command :'travis:watch' do |c|
 	  end
 	end
   end
+
 end
 
