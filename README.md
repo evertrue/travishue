@@ -2,7 +2,8 @@
 # travishue
         
 ### help
-    
+
+```
    th
 
   Monitor travis builds with Hue
@@ -19,3 +20,4 @@
   
   Author:
     PJ Gray <pj@evertrue.com>
+```
