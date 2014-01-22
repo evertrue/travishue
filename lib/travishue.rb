@@ -44,7 +44,7 @@ end
 
 command :'flux:now' do |c|
   c.syntax = 'hue:flux'
-  c.summary = 'Do flux cycle'
+  c.summary = 'Set temperature based on time of day'
 
   c.action do |args, options|
 

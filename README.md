@@ -4,11 +4,13 @@
 ### help
 
 ```
-   th
+  th
 
   Monitor travis builds with Hue
 
   Commands:
+    flux:cycle           Do flux cycle
+    flux:now             Set temperature based on time of day
     help                 Display global or [command] help documentation.
     travis:token         Set Travis pro token 
     travis:watch         Watch Travis builds
@@ -20,4 +22,5 @@
   
   Author:
     PJ Gray <pj@evertrue.com>
+  
 ```
