@@ -7,7 +7,9 @@ command :'travis:token' do |c|
   c.summary = 'Set Travis pro token '
 
   c.action do |args, options|
-    say_error "Missing arguments, expected [TOKEN] (travis token --pro)" and abort if args.nil? or args.empty? or args.count < 1
+    say_error "Missing arguments, expected [TOKEN]" and abort if args.nil? or args.empty? or args.count < 1
+
+	Keychain.generic_passwords.where(:service => 'travishue').where(:account => 'protoken').first.delete
 
 	Keychain.generic_passwords.create(
 		:service => 'travishue', 
@@ -102,21 +104,6 @@ command :'travis:watch' do |c|
 	    if event.build.state == 'failed'
 	    	%x(hue 1 failed)
 	    	%x(hue 2 failed)
-	    end
-
-	    if event.build.state == 'errored'
-	    	%x(hue 1 failed)
-	        %x(hue 2 failed)
-	    end
-
-	    if event.build.state == 'passed'
-	    	%x(hue 1 passed)
-	    	%x(hue 2 passed)
-	    end
-
-	    if event.build.state == 'started'
-	    	%x(hue 1 started)
-	    	%x(hue 2 started)
 	    end
 	  end
 	end
